@@ -10,20 +10,23 @@ public class Player : MonoBehaviour
 
     private bool isGrounded; //Check if player is on the ground
     private Rigidbody2D rb;
+    private BoxCollider2D bc;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        isGrounded = false;
+        isGrounded = true;
 
         rb = GetComponent<Rigidbody2D>();
+
+        bc = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()
