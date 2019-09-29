@@ -28,20 +28,17 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isGrounded)
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) 
         {
             rb.AddForce(Vector2.up * m_jumpForce);
             isGrounded = false;
         }
 
-        transform.position = Vector3.right * Input.GetAxis("Horizontal") * m_MoveSpeed * Time.deltaTime;
+        transform.position += Vector3.right * Input.GetAxis("Horizontal") * m_MoveSpeed * Time.deltaTime;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void setIsGrounded(bool value)
     {
-        if(collision.gameObject.tag == "platform" && rb.velocity.y == 0)
-        {
-            isGrounded = true;
-        }
+        isGrounded = value;
     }
 }
