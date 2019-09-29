@@ -23,16 +23,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()
     {
-        if (isGrounded)
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) 
         {
             rb.AddForce(Vector2.up * m_jumpForce);
+            isGrounded = false;
         }
 
-        transform.position = Vector3.right * Input.GetAxis("Horizontal") * m_MoveSpeed * Time.deltaTime;
+        transform.position += Vector3.right * Input.GetAxis("Horizontal") * m_MoveSpeed * Time.deltaTime;
+    }
+
+    public void setIsGrounded(bool value)
+    {
+        isGrounded = value;
     }
 }
