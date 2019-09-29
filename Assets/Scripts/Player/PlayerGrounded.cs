@@ -25,7 +25,8 @@ public class PlayerGrounded : MonoBehaviour
     {
         if (collider.gameObject.tag == "platform")
         {
-            player.setIsGrounded(true);
+            player.setCanJump(true);
+            player.resetJumps();
         }
     }
 }
